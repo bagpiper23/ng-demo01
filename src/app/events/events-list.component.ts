@@ -3,10 +3,10 @@ import { Component } from '@angular/core'
 @Component({
     selector: 'events-list',
     template: `
-    <div>
+    <div *ngFor="let event of events">
         <h1>Upcoming Angular Events</h1>
         <hr/>
-        <event-thumbnail *ngFor="let event of events" [event]="event"></event-thumbnail>
+        <event-thumbnail [event]="event"></event-thumbnail>
     </div>
     `
 })
