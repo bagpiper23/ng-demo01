@@ -4,7 +4,7 @@ import { EventService } from './shared/event.service'
 import { map } from 'rxjs/operators'
 
 @Injectable()
-export class EventListResolver implements Resolve<any> {
+export class EventsListResolver implements Resolve<any> {
     constructor(private eventService:EventService) {
 
     }
