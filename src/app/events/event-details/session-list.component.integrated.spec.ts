@@ -16,6 +16,8 @@ describe('SessionListComponent', () => {
         debugEl: DebugElement
 
     beforeEach(() => {
+        mockAuthService = { isAuthenticated: () => true, currentUser: {userName: 'Joe'} }
+        mockVoterService = { userHasVoted: () => true }
         TestBed.configureTestingModule({
             declarations: [
                 SessionListComponent,
@@ -46,6 +48,8 @@ describe('SessionListComponent', () => {
             component.ngOnChanges();
 
             fixture.detectChanges();
+
+            expect(element.querySelector('[well-title]').textContent).toContain('Session 1')
         })
     })
 })
