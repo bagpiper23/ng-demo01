@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing"
 import { SessionListComponent } from "./session-list.component"
 import { AuthService } from "src/app/user/auth.service"
 import { VoterService } from "./voter.service"
+import { DurationPipe } from "../shared"
 
 
 describe('SessionListComponent', () => {
@@ -17,7 +18,8 @@ describe('SessionListComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
-                SessionListComponent
+                SessionListComponent,
+                DurationPipe
             ],
             providers: [
                 { provide: AuthService, useValue: mockAuthService },
@@ -33,6 +35,17 @@ describe('SessionListComponent', () => {
 
     describe('initial display', () => {
 
+        it('should have the correct title', () => {
+            component.sessions = [
+                {name: 'Session 1', id: 3, presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract',
+                voters: ['john', 'bob']}
+            ]
+            component.filterBy = 'all';
+            component.sortBy = 'name';
+            component.eventId = 4;
+            component.ngOnChanges();
 
+            fixture.detectChanges();
+        })
     })
 })
