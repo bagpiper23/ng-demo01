@@ -1,19 +1,10 @@
-import { DebugElement } from "@angular/core"
+import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core"
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 import { SessionListComponent } from "./session-list.component"
 import { AuthService } from "src/app/user/auth.service"
 import { VoterService } from "./voter.service"
 import { DurationPipe } from "../shared"
 import { By } from "@angular/platform-browser"
-import { CollapsibleWellComponent } from "src/app/common"
-import { UpvoteComponent } from "./upvote.component"
-
-@Component({
-    selector: 'upvote'
-})
-class MockUpvoteComponent {
-    @Input()
-}
 
 describe('SessionListComponent', () => {
 
@@ -30,14 +21,14 @@ describe('SessionListComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 SessionListComponent,
-                DurationPipe,
-                MockUpvoteComponent
-                //CollapsibleWellComponent,
-                //UpvoteComponent
+                DurationPipe
             ],
             providers: [
                 { provide: AuthService, useValue: mockAuthService },
                 { provide: VoterService, useValue: mockVoterService }
+            ],
+            schemas: [
+                NO_ERRORS_SCHEMA
             ]
         });
         fixture = TestBed.createComponent(SessionListComponent);
