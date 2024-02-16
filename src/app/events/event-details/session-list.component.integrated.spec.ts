@@ -5,6 +5,8 @@ import { AuthService } from "src/app/user/auth.service"
 import { VoterService } from "./voter.service"
 import { DurationPipe } from "../shared"
 import { By } from "@angular/platform-browser"
+import { CollapsibleWellComponent } from "src/app/common"
+import { UpvoteComponent } from "./upvote.component"
 
 
 describe('SessionListComponent', () => {
@@ -22,7 +24,9 @@ describe('SessionListComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 SessionListComponent,
-                DurationPipe
+                DurationPipe,
+                CollapsibleWellComponent,
+                UpvoteComponent
             ],
             providers: [
                 { provide: AuthService, useValue: mockAuthService },
