@@ -8,6 +8,12 @@ import { By } from "@angular/platform-browser"
 import { CollapsibleWellComponent } from "src/app/common"
 import { UpvoteComponent } from "./upvote.component"
 
+@Component({
+    selector: 'upvote'
+})
+class MockUpvoteComponent {
+    @Input()
+}
 
 describe('SessionListComponent', () => {
 
@@ -25,8 +31,9 @@ describe('SessionListComponent', () => {
             declarations: [
                 SessionListComponent,
                 DurationPipe,
-                CollapsibleWellComponent,
-                UpvoteComponent
+                MockUpvoteComponent
+                //CollapsibleWellComponent,
+                //UpvoteComponent
             ],
             providers: [
                 { provide: AuthService, useValue: mockAuthService },
