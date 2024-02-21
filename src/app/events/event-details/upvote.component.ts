@@ -20,7 +20,7 @@ export class UpvoteComponent {
     @Input() count: number;
     @Input() set voted(val){
         this.iconColor = val ? 'red' : 'white'
-    };
+    }
     @Output() vote = new EventEmitter();
     iconColor: string;
 
